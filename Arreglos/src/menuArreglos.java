@@ -1,4 +1,5 @@
 
+import java.util.Random;
 import javax.swing.JOptionPane;
 
 /*
@@ -133,10 +134,12 @@ public class menuArreglos extends javax.swing.JFrame {
 
     private void crearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearActionPerformed
 //        int tamano=Integer.parseInt(JOptionPane.showInputDialog("Tamaño Arreglo"));
-          int tamano=1000;
+          int tamano=100000;
+          Random r=new Random();
           edades=new int[tamano];
         for(int i=0;i<tamano;i++){
-            edades[i]=(int)(Math.random()*100+1);
+            edades[i]=(int)(r.nextFloat()*100+1);
+//            edades[i]=(int)(Math.random()*100+1);
 //            edades[i]=Integer.parseInt(
 //            JOptionPane.showInputDialog("Edad Posicion:"+i));
          
@@ -184,32 +187,32 @@ public class menuArreglos extends javax.swing.JFrame {
 //      }
 
 //Metodo de Insersion 
-//     int posicion,auxiliar;
-//     for(int i=0;i<edades.length;i++){
-//         posicion=i;
-//         auxiliar=edades[i];
-//         while ((posicion>0)&&(edades[posicion-1]>auxiliar)){
-//             edades[posicion]=edades[posicion-1];
-//             posicion--;
-//         }
-//         edades[posicion]=auxiliar;
-//     }
+     int posicion,auxiliar;
+     for(int i=0;i<edades.length;i++){
+         posicion=i;
+         auxiliar=edades[i];
+         while ((posicion>0)&&(edades[posicion-1]>auxiliar)){
+             edades[posicion]=edades[posicion-1];
+             posicion--;
+         }
+         edades[posicion]=auxiliar;
+     }
 
 //Metodo de Seleccion 
-       int minimo;
-       int auxiliar;
-       for(int i=0;i<edades.length;i++){
-           minimo=i;
-           for(int j=i+1;j<edades.length;j++){
-               if(edades[j]<edades[minimo]){
-                     minimo=j; 
-               }
-           }
-           auxiliar=edades[i];
-           edades[i]=edades[minimo];
-           edades[minimo]=auxiliar;
-           
-       }
+//       int minimo;
+//       int auxiliar;
+//       for(int i=0;i<edades.length;i++){
+//           minimo=i;
+//           for(int j=i+1;j<edades.length;j++){
+//               if(edades[j]<edades[minimo]){
+//                     minimo=j; 
+//               }
+//           }
+//           auxiliar=edades[i];
+//           edades[i]=edades[minimo];
+//           edades[minimo]=auxiliar;
+//           
+//       }
     }//GEN-LAST:event_ordenarActionPerformed
 
     /**
