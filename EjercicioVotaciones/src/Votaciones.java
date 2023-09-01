@@ -8,6 +8,7 @@ public class Votaciones extends javax.swing.JFrame {
    int matrizCantidadMesas[][];
    int sumaMesas[];
    int mayor=0;
+   int mayorMesa=0;
    Candidato listaCandidatos[];
     public Votaciones() {
         initComponents();
@@ -205,20 +206,21 @@ public class Votaciones extends javax.swing.JFrame {
            }
        }
        int contadorMayor=0;
+       mayorMesa=0;
         for(int i=0;i<sumaMesas.length;i++){
-           if(sumaMesas[i]>mayor){
-               mayor=sumaMesas[i];
+           if(sumaMesas[i]>mayorMesa){
+               mayorMesa=sumaMesas[i];
                contadorMayor=i;
            }
        }
-        JOptionPane.showMessageDialog(rootPane,"Mesa con mayor votos: "+(contadorMayor+1)+" ,Cantidad de Votos:"+mayor);
+        JOptionPane.showMessageDialog(rootPane,"Mesa con mayor votos: "+(contadorMayor+1)+" ,Cantidad de Votos:"+mayorMesa);
        
        
     }//GEN-LAST:event_mesaMasVotadaActionPerformed
 
     private void mesaMenosVotadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mesaMenosVotadaActionPerformed
 
-        int menor=mayor;
+        int menor=mayorMesa;
        int contadorMenor=0;
         for(int i=0;i<sumaMesas.length;i++){
            if(sumaMesas[i]<menor){
