@@ -16,6 +16,7 @@ Operaciones objetoLista=new Operaciones();
         Buscar = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
+        insertar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -47,6 +48,13 @@ Operaciones objetoLista=new Operaciones();
 
         jButton5.setText("Actualizar");
 
+        insertar.setText("Insertar al final");
+        insertar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                insertarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -66,8 +74,13 @@ Operaciones objetoLista=new Operaciones();
                 .addComponent(jButton5)
                 .addGap(79, 79, 79))
             .addGroup(layout.createSequentialGroup()
-                .addGap(96, 96, 96)
-                .addComponent(jLabel1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(96, 96, 96)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(157, 157, 157)
+                        .addComponent(insertar)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -84,7 +97,9 @@ Operaciones objetoLista=new Operaciones();
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton4)
                     .addComponent(jButton5))
-                .addContainerGap(170, Short.MAX_VALUE))
+                .addGap(29, 29, 29)
+                .addComponent(insertar)
+                .addContainerGap(118, Short.MAX_VALUE))
         );
 
         pack();
@@ -102,6 +117,10 @@ Operaciones objetoLista=new Operaciones();
     private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
        objetoLista.Buscar(Integer.parseInt(JOptionPane.showInputDialog("Valor a Buscar:")));
     }//GEN-LAST:event_BuscarActionPerformed
+
+    private void insertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertarActionPerformed
+          objetoLista.insertarAlFinal(Integer.parseInt(JOptionPane.showInputDialog("Ingresar Valor:")));
+    }//GEN-LAST:event_insertarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -142,6 +161,7 @@ Operaciones objetoLista=new Operaciones();
     private javax.swing.JButton Buscar;
     private javax.swing.JButton Consultar;
     private javax.swing.JButton Crear;
+    private javax.swing.JButton insertar;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;

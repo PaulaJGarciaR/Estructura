@@ -46,4 +46,20 @@ public void Buscar(int valorABuscar){
         }
     }  
 }
+public void insertarAlFinal(int valor){
+Nodo nuevo=new Nodo();
+        nuevo.setDato(valor);
+        nuevo.setEnlace(null);
+         if(inicio==null){
+            inicio=nuevo;
+        }
+         else{
+             Nodo temporal=inicio;
+             while(temporal.getEnlace()!=null)
+                 temporal=temporal.getEnlace();
+                 temporal.setEnlace(nuevo);
+             
+         }
+}
+
 }
