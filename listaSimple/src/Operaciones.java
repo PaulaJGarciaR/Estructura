@@ -61,5 +61,25 @@ Nodo nuevo=new Nodo();
              
          }
 }
-
+public void entreNodos(int buscar, int valorAInsertar){
+    Nodo nuevo=new Nodo();
+    nuevo.setDato(valorAInsertar);
+    nuevo.setEnlace(null);
+    if(inicio==null){
+        inicio=nuevo;
+    }else{
+        Nodo temporal=inicio;
+        while(temporal!=null){
+            if(temporal.getDato()==buscar){
+                nuevo.setEnlace(temporal.getEnlace());
+                temporal.setEnlace(nuevo);
+            }
+            temporal=temporal.getEnlace();
+        }
+    }
+    
+ }
 }
+    
+
+
