@@ -19,7 +19,7 @@ public void imprimir(){
     if(inicio==null){
         JOptionPane.showMessageDialog(null,"Lista Vacia");       
 }else{
-        Nodo temporal=inicio;
+          Nodo temporal=inicio;
         while(temporal!=null){
           JOptionPane.showMessageDialog(null,"Los valores son:"+temporal.getDato()); 
          temporal=temporal.getEnlace();

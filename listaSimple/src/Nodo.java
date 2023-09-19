@@ -4,7 +4,8 @@ public class Nodo {
    private int datoAInsertar;
    //Variables Auto-referenciadas 
    private Nodo enlace;
-
+    
+   
     public int getDatoAInsertar() {
         return datoAInsertar;
     }
