@@ -1,6 +1,5 @@
 public class Nodo {
    private int dato;
-   private Nodo siguiente;
    private int datoAInsertar;
    //Variables Auto-referenciadas 
    private Nodo enlace;
@@ -13,15 +12,6 @@ public class Nodo {
     public void setDatoAInsertar(int datoAInsertar) {
         this.datoAInsertar = datoAInsertar;
     }
-
-    public Nodo getSiguiente() {
-        return siguiente;
-    }
-
-    public void setSiguiente(Nodo siguiente) {
-        this.siguiente = siguiente;
-    }
-
     public int getDato() {
         return dato;
     }
