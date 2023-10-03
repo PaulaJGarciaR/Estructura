@@ -23,8 +23,6 @@ public class OperacionesTurnosListasDobles {
     }
     public void buscarPosicion(String nombre, String buscar){
         Nodo temporal=cabeza;
-        Nodo nuevo=new Nodo();
-        nuevo.setNombre(nombre);
         while(temporal!=null){
           if(temporal.getNombre().equals(buscar)){
               if(temporal.equals(cabeza)){
@@ -54,7 +52,21 @@ public class OperacionesTurnosListasDobles {
         }
     }
     public void imprimirFinalInicio(){
-       Nodo temporal=cabeza;
+        Nodo temporal=cabeza;
+      if(cabeza==null){
+            JOptionPane.showMessageDialog(null,"La Lista esta vacia");
+        }
+        else{
+            while(temporal!=null){
+                JOptionPane.showMessageDialog(null,"Los valores son:"+temporal.getNombre());
+                temporal=temporal.getSiguiente();
+            }
+            while(temporal!=null){
+               JOptionPane.showMessageDialog(null,"Los valores son:"+temporal.getNombre());
+                temporal=temporal.getAnterior();   
+                
+            }
+        }
        
      
        
