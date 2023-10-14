@@ -1,9 +1,15 @@
 
+import java.util.Calendar;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 
 public class Menu extends javax.swing.JFrame {
     Operaciones objetoLista=new Operaciones();
+    int posicion;
+    boolean entrada=true;
+    static Calendar Hora=Calendar.getInstance();
+     String horaActual;
     public Menu() {
         initComponents();
     }
@@ -32,12 +38,15 @@ public class Menu extends javax.swing.JFrame {
         entrar = new javax.swing.JButton();
         p3 = new javax.swing.JLabel();
         p4 = new javax.swing.JLabel();
+        c5 = new javax.swing.JLabel();
         p6 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         p7 = new javax.swing.JLabel();
         p8 = new javax.swing.JLabel();
-        p9 = new javax.swing.JLabel();
         p10 = new javax.swing.JLabel();
+        p9 = new javax.swing.JLabel();
+        consultar = new javax.swing.JButton();
+        parqueaderosDisponibles = new javax.swing.JButton();
+        salida = new javax.swing.JButton();
 
         jCheckBox1.setText("jCheckBox1");
 
@@ -97,123 +106,165 @@ public class Menu extends javax.swing.JFrame {
 
         p4.setText("P4-L");
 
-        p6.setText("P5-L");
+        c5.setText("P5-L");
 
-        jLabel8.setText("P6-L");
+        p6.setText("P6-L");
 
         p7.setText("P7-L");
 
         p8.setText("P8-L");
 
-        p9.setText("P10-L");
+        p10.setText("P10-L");
 
-        p10.setText("P9-L");
+        p9.setText("P9-L");
+
+        consultar.setText("CONSULTAR");
+        consultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                consultarActionPerformed(evt);
+            }
+        });
+
+        parqueaderosDisponibles.setText("PARQUEADEROS DISPONIBLES");
+        parqueaderosDisponibles.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                parqueaderosDisponiblesActionPerformed(evt);
+            }
+        });
+
+        salida.setText("SALIDA DE VEHICULOS");
+        salida.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salidaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(67, 67, 67)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel4)
+                                        .addComponent(jLabel6)
+                                        .addComponent(jLabel7))
+                                    .addGap(24, 24, 24))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addComponent(jLabel5)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(nombre)
+                                .addComponent(documento, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(placa, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(telefono, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(43, 43, 43)
+                            .addComponent(jLabel2)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addComponent(entrar)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel3)
+                        .addGap(212, 212, 212))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(142, 142, 142)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(p9)
+                            .addComponent(p7)
+                            .addComponent(c5)
+                            .addComponent(p3)
+                            .addComponent(p1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(p8)
+                            .addComponent(p10)
+                            .addComponent(p6)
+                            .addComponent(p4)
+                            .addComponent(p2))
+                        .addGap(144, 144, 144))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 119, Short.MAX_VALUE)
+                        .addComponent(parqueaderosDisponibles)
+                        .addGap(115, 115, 115))))
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(140, 140, 140)
+                        .addGap(322, 322, 322)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addComponent(entrar)))
-                .addContainerGap(205, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(jLabel2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(nombre, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
-                            .addComponent(documento, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(placa, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(telefono))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(p10)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(p9))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(p7)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(p8))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addComponent(p6)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel8))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(p3)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(p4))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(p1)
-                            .addGap(58, 58, 58)
-                            .addComponent(p2))))
-                .addGap(45, 45, 45))
+                        .addGap(298, 298, 298)
+                        .addComponent(consultar)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(255, 255, 255)
+                .addComponent(salida)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(9, 9, 9)
                 .addComponent(jLabel1)
-                .addGap(21, 21, 21)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(placa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(p1)
-                    .addComponent(p2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(documento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(p3)
-                    .addComponent(p4))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(placa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(15, 15, 15)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(documento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel6))
-                        .addGap(90, 90, 90)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7)
-                            .addComponent(telefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(entrar)
-                        .addGap(15, 15, 15))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(p6)
-                            .addComponent(jLabel8))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(telefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7))
+                        .addGap(34, 34, 34))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(p1)
+                            .addComponent(p2))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(p3)
+                            .addComponent(p4))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(c5)
+                            .addComponent(p6))
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(p7)
                             .addComponent(p8))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(p9)
-                            .addComponent(p10))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(p10, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(29, 29, 29)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(entrar)
+                    .addComponent(parqueaderosDisponibles))
+                .addGap(61, 61, 61)
+                .addComponent(consultar)
+                .addGap(61, 61, 61)
+                .addComponent(salida)
+                .addContainerGap(74, Short.MAX_VALUE))
         );
 
         pack();
@@ -228,10 +279,90 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_nombreActionPerformed
 
     private void entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarActionPerformed
-        int posicion=Integer.parseInt(JOptionPane.showInputDialog("Digite la posicion:"));
-        objetoLista.entrarParquedero(placa.getText(), documento.getText(), nombre.getText(), telefono.getText(), posicion);
-        p1.setText("P1-Ocupado");
+        posicion=Integer.parseInt(JOptionPane.showInputDialog("Digite el numero de parqueadero a utilizar:"));
+        int hora,minutos;
+       hora=Hora.get(Calendar.HOUR_OF_DAY);
+       minutos=Hora.get(Calendar.MINUTE);
+       horaActual=hora+":"+minutos;
+        objetoLista.entrarParquedero(placa.getText(), documento.getText(), nombre.getText(), telefono.getText(), posicion,horaActual);
+       
+        if(posicion==1){
+           p1.setText("P1-Ocupado");
+       }
+         if(posicion==2){
+           p2.setText("P2-Ocupado");
+       }
+         if(posicion==3){
+           p3.setText("P3-Ocupado");
+       }
+         if(posicion==4){
+           p4.setText("P4-Ocupado");
+       }
+         if(posicion==5){
+           c5.setText("P5-Ocupado");
+       }
+          if(posicion==6){
+           p6.setText("P6-Ocupado");
+       }
+           if(posicion==7){
+           p7.setText("P7-Ocupado");
+       }
+          if(posicion==8){
+           p8.setText("P8-Ocupado");
+       }
+           if(posicion==9){
+           p9.setText("P9-Ocupado");
+       }
+            if(posicion==10){
+           p10.setText("P10-Ocupado");
+       }
+       
+        
     }//GEN-LAST:event_entrarActionPerformed
+
+    private void consultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarActionPerformed
+        String placaBuscar=JOptionPane.showInputDialog("Placa del vehiculo que desea buscar:");
+        objetoLista.consultar(placaBuscar);
+    }//GEN-LAST:event_consultarActionPerformed
+
+    private void parqueaderosDisponiblesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_parqueaderosDisponiblesActionPerformed
+        objetoLista.parqueaderosDisponibles();
+    }//GEN-LAST:event_parqueaderosDisponiblesActionPerformed
+
+    private void salidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salidaActionPerformed
+        int posicionEliminar=Integer.parseInt(JOptionPane.showInputDialog("Posicion de Parqueadero libre:"));
+        objetoLista.eliminarPosicion(posicionEliminar);
+        if(posicionEliminar==1){
+           p1.setText("P1-L");
+       }
+         if(posicionEliminar==2){
+           p2.setText("P2-L");
+       }
+         if(posicionEliminar==3){
+           p3.setText("P3-L");
+       }
+         if(posicionEliminar==4){
+           p4.setText("P4-L");
+       }
+         if(posicionEliminar==5){
+           c5.setText("P5-L");
+       }
+          if(posicionEliminar==6){
+           p6.setText("P6-L");
+       }
+           if(posicionEliminar==7){
+           p7.setText("P7-L");
+       }
+          if(posicionEliminar==8){
+           p8.setText("P8-L");
+       }
+           if(posicionEliminar==9){
+           p9.setText("P9-L");
+       }
+            if(posicionEliminar==10){
+           p10.setText("P10-L");
+       }
+    }//GEN-LAST:event_salidaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -269,6 +400,8 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel c5;
+    private javax.swing.JButton consultar;
     private javax.swing.JTextField documento;
     private javax.swing.JButton entrar;
     private javax.swing.JCheckBox jCheckBox1;
@@ -279,7 +412,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField nombre;
@@ -293,7 +425,9 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel p7;
     private javax.swing.JLabel p8;
     private javax.swing.JLabel p9;
+    private javax.swing.JButton parqueaderosDisponibles;
     private javax.swing.JTextField placa;
+    private javax.swing.JButton salida;
     private javax.swing.JTextField telefono;
     // End of variables declaration//GEN-END:variables
 }
