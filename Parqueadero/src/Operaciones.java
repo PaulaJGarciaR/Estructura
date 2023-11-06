@@ -5,7 +5,7 @@ import javax.swing.JOptionPane;
 
 public class Operaciones {
     NodoDoble inicio;
-    int contadorVehiculos=2;
+    int contadorVehiculos=10;
     int contador=0;
     String horaLLegada;
    
